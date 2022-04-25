@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global variables
-DIR_CONFIG="/etc/xray"
+DIR_CONFIG="/usr/bin"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
@@ -48,4 +48,4 @@ install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}
 rm -rf ${DIR_TMP}
 
 # Run V2Ray
-${DIR_RUNTIME}/xray run -c=${DIR_CONFIG}/config.pb
+${DIR_RUNTIME}/xray run
