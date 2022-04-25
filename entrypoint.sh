@@ -48,4 +48,4 @@ install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}
 rm -rf ${DIR_TMP}
 
 # Run V2Ray
-${DIR_RUNTIME}/xray -config=${DIR_CONFIG}/config.pb
+${DIR_RUNTIME}/xray -c ${DIR_CONFIG}/config.pb
