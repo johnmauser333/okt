@@ -41,11 +41,11 @@ busybox unzip ${DIR_TMP}/xray.zip -d ${DIR_TMP}
 
 # Convert to protobuf format configuration
 mkdir -p ${DIR_CONFIG}
-${DIR_TMP}/xray config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.json
+${DIR_TMP}/xray config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
 
 # Install V2Ray
 install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}
 rm -rf ${DIR_TMP}
 
 # Run V2Ray
-${DIR_RUNTIME}/xray -c ${DIR_CONFIG}/config.json
+${DIR_RUNTIME}/xray run -c=${DIR_CONFIG}/config.pb
