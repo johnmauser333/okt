@@ -18,8 +18,7 @@
                 "wsSettings": {
                         "path": "/UUID"
                 }
-            }
-        },
+            },
     ],
     "outbounds": [
         {
