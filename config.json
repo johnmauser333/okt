@@ -14,10 +14,7 @@
                 "disableInsecureEncryption": true
             },
             "streamSettings": {
-                "network": "ws",
-                "wsSettings": {
-                        "path": "WSPATH"
-                }
+                "network": "ws"
             }
 	}
     ],
