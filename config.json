@@ -15,6 +15,9 @@
             },
             "streamSettings": {
                 "network": "ws"
+                "wsSettings": {
+                        "path": "/UUID"
+                }
             }
         }
     ],
