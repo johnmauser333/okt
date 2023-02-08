@@ -5,14 +5,14 @@
         "protocol": "vmess",
         "settings": {
             "clients": [{
-                "id": "${ID}",
-                "alterId": ${AID}
+                "id": "ID",
+                "alterId": "AID"
             }]
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "${WSPATH}"
+                "path": "WSPATH"
             }
         }
     }],
