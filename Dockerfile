@@ -1,6 +1,12 @@
-FROM alpine:latest
+FROM nginx:latest
+EXPOSE 80
+WORKDIR /app
+USER root
 
-ADD entrypoint.sh /opt/entrypoint.sh
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY config.json ./
+COPY entrypoint.sh ./
 
 RUN wget -O temp.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip temp.zip xray && \
