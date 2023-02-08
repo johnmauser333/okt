@@ -1,22 +1,26 @@
 {
-    "inbounds": [{
-        "port": 10000,
-        "listen": "127.0.0.1",
-        "protocol": "vmess",
-        "settings": {
-            "clients": [{
-                "id": "UUID",
-                "alterId": "0"
-            }]
-        },
-        "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-                "path": "WSPATH"
+    "inbounds": [
+        {
+            "port": 10000,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "UUID",
+                        "security": "chacha20-poly1305",
+                        "alterId": 0
+                    }
+                ],
+                "disableInsecureEncryption": true
+            },
+            "streamSettings": {
+                "network": "ws"
             }
         }
-    }],
-    "outbounds": [{
-        "protocol": "freedom"
-    }]
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
 }
