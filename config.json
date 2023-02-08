@@ -14,7 +14,7 @@
                 "disableInsecureEncryption": true
             },
             "streamSettings": {
-                "network": "ws"
+                "network": "ws",
                 "wsSettings": {
                         "path": "/UUID"
                 }
