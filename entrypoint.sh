@@ -8,31 +8,7 @@ AID=0
 WSPATH=/
 PORT=10000
 
-# Write V2Ray configuration
-cat << EOF > ${DIR_TMP}/config.json
-{
-    "inbounds": [{
-        "port": 80,
-        "listen": "127.0.0.1",
-        "protocol": "vmess",
-        "settings": {
-            "clients": [{
-                "id": "${ID}",
-                "alterId": ${AID}
-            }]
-        },
-        "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-                "path": "${WSPATH}"
-            }
-        }
-    }],
-    "outbounds": [{
-        "protocol": "freedom"
-    }]
-}
-EOF
+
 
 # Get V2Ray executable release
 # 伪装 xray 执行文件
