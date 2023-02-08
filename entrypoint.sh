@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Global variables
-DIR_CONFIG="/etc/xray"
-DIR_RUNTIME="/usr/bin"
-DIR_TMP="$(mktemp -d)"
 
 ID=69414c6d-2516-41c9-92de-3fcee09e3ad1
 AID=0
@@ -11,7 +7,7 @@ WSPATH=/
 PORT=10000
 
 # Write V2Ray configuration
-cat << EOF > ${DIR_TMP}/heroku.json
+cat << EOF > ${DIR_TMP}/config.json
 {
     "inbounds": [{
         "port": 80,
@@ -37,16 +33,13 @@ cat << EOF > ${DIR_TMP}/heroku.json
 EOF
 
 # Get V2Ray executable release
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/XTLS/Xray-core/releases/download/v1.7.5/Xray-linux-64.zip -o ${DIR_TMP}/xray.zip
-busybox unzip ${DIR_TMP}/xray.zip -d ${DIR_TMP}
+# 伪装 xray 执行文件
+RELEASE_RANDOMNESS=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)
+mv xray ${RELEASE_RANDOMNESS}
+wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+cat config.json | base64 > config
+rm -f config.json
 
-# Convert to protobuf format configuration
-mkdir -p ${DIR_CONFIG}
-${DIR_TMP}/v2ctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
-
-# Install V2Ray
-install -m 755 ${DIR_TMP}/xray ${DIR_RUNTIME}
-rm -rf ${DIR_TMP}
-
-# Run V2Ray
-${DIR_RUNTIME}/xray -c=/etc/xray/config.pb
+base64 -d config > config.json
+./${RELEASE_RANDOMNESS} -config=config.json
