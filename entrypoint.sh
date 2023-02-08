@@ -5,7 +5,7 @@ DIR_TMP="$(mktemp -d)"
 
 UUID='69414c6d-2516-41c9-92de-3fcee09e3ad1'
 AID=0
-WSPATH='/'
+WSPATH='/69414c6d-2516-41c9-92de-3fcee09e3ad1'
 
 
 
