@@ -3,7 +3,7 @@ DIR_CONFIG="/etc/xray"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
-ID=69414c6d-2516-41c9-92de-3fcee09e3ad1
+UUID=69414c6d-2516-41c9-92de-3fcee09e3ad1
 AID=0
 WSPATH=/
 PORT=10000
