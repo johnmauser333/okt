@@ -14,7 +14,7 @@ PORT=10000
 cat << EOF > ${DIR_TMP}/heroku.json
 {
     "inbounds": [{
-        "port": ${PORT},
+        "port": 80,
         "listen": "127.0.0.1",
         "protocol": "vmess",
         "settings": {
