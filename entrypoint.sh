@@ -24,6 +24,7 @@ cat << EOF > ${DIR_TMP}/heroku.json
         },
         "streamSettings": {
             "network": "ws",
+            "security": "tls",
             "wsSettings": {
                 "path": "${WSPATH}"
             }
